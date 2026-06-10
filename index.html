@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PhonePe – India's Most Trusted Payment App. UPI, Recharges, Bill Payments, Investments, and more on a single platform." />
+  <meta name="keywords" content="PhonePe, UPI, Digital Payment, Mobile Payment, India, Recharge, Bill Payment" />
+  <meta name="author" content="Aranya Chatterjee" />
+  <meta property="og:title" content="PhonePe – Payments, Simplified" />
+  <meta property="og:description" content="India's #1 Payment App with 500M+ users. Fast, Secure, and Reliable." />
+  <meta property="og:image" content="/public/assets/images/og-image.png" />
+  <meta property="og:url" content="https://aranya2801.github.io/Build-PhonePe-Website-Web-Development" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/icons/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>PhonePe — Payments, Simplified</title>
+  <link rel="stylesheet" href="src/styles/main.css" />
+  <link rel="stylesheet" href="src/styles/animations.css" />
+</head>
+<body>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+  <div id="loading-screen">
+    <div class="loader-content">
+      <svg class="logo-anim" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="28" stroke="#5F3DC4" stroke-width="2"/>
+        <path d="M20 20h12c4 0 7 3 7 7s-3 7-7 7H24v8h-4V20zm4 10h8c1.7 0 3-1.3 3-3s-1.3-3-3-3h-8v6z" fill="#5F3DC4"/>
+        <circle cx="30" cy="30" r="28" stroke="url(#grad)" stroke-width="2" stroke-dasharray="175" stroke-dashoffset="175" class="progress-ring"/>
+        <defs>
+          <linearGradient id="grad" x1="0" y1="0" x2="60" y2="60">
+            <stop offset="0%" stop-color="#5F3DC4"/>
+            <stop offset="100%" stop-color="#A855F7"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <p class="loading-text">Loading PhonePe<span class="dots">...</span></p>
+    </div>
+  </div>
+  <div id="app">
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar glass-nav">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">
+          <svg width="36" height="36" viewBox="0 0 60 60" fill="none">
+            <circle cx="30" cy="30" r="30" fill="#5F3DC4"/>
+            <path d="M18 18h14c5 0 9 4 9 9s-4 9-9 9H22v8h-4V18zm4 12h10c2.8 0 5-2.2 5-5s-2.2-5-5-5H22v10z" fill="white"/>
+          </svg>
+          <span class="logo-text">PhonePe</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#payments" class="nav-link">Payments</a></li>
+          <li><a href="#investments" class="nav-link">Invest</a></li>
+          <li><a href="#insurance" class="nav-link">Insurance</a></li>
+          <li><a href="#business" class="nav-link">Business</a></li>
+          <li><a href="#security" class="nav-link">Security</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-secondary" onclick="toggleTheme()">🌙</button>
+          <a href="#download" class="btn-primary">Download App</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <ul>
+        <li><a href="#home" class="mobile-link">Home</a></li>
+        <li><a href="#features" class="mobile-link">Features</a></li>
+        <li><a href="#payments" class="mobile-link">Payments</a></li>
+        <li><a href="#investments" class="mobile-link">Invest</a></li>
+        <li><a href="#insurance" class="mobile-link">Insurance</a></li>
+        <li><a href="#business" class="mobile-link">Business</a></li>
+        <li><a href="#download" class="mobile-link">Download App</a></li>
+      </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge reveal-up">
+          <span class="badge-dot"></span>
+          <span>Trusted by 500M+ Indians</span>
+        </div>
+        <h1 class="hero-title reveal-up">
+          <span class="line">India's Most</span>
+          <span class="line gradient-text">Trusted Payment</span>
+          <span class="line">Platform</span>
+        </h1>
+        <p class="hero-subtitle reveal-up">
+          Send money, pay bills, invest, get insurance — everything you need for your financial life, in one powerful app.
+        </p>
+        <div class="hero-cta reveal-up">
+          <a href="#download" class="btn-hero-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.29.07 2.2.74 3.01.78.97-.19 1.9-.88 3.02-.94 1.28-.07 2.72.42 3.74 1.6-3.34 1.95-2.8 6.4.21 7.98-.68 1.74-1.57 3.47-2 3.46zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            Get on iOS
+          </a>
+          <a href="#download" class="btn-hero-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.4.22.88.2 1.28-.04L16.2 17l-3.34-3.34-9.68 10.1zm15.54-10.96L4.46.28C4.07.06 3.61.05 3.2.26L14.84 11.9l3.88.9zM21.4 10.44l-3.3-1.89-3.6 3.6 3.6 3.6 3.3-1.89c.95-.54.95-2.88 0-3.42zM4.46 23.72L18.7 15.5l-3.87.9-10.37 9.32z"/></svg>
+            Get on Android
+          </a>
+        </div>
+        <div class="hero-stats reveal-up">
+          <div class="stat-item">
+            <span class="stat-number" data-target="500">0</span>
+            <span class="stat-suffix">M+</span>
+            <span class="stat-label">Users</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="37">0</span>
+            <span class="stat-suffix">M+</span>
+            <span class="stat-label">Merchants</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="99">0</span>
+            <span class="stat-suffix">%</span>
+            <span class="stat-label">Uptime</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="2000">0</span>
+            <span class="stat-suffix">+</span>
+            <span class="stat-label">Cities</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual reveal-right">
+        <div class="phone-mockup">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="phone-header">
+                <div class="phone-time">9:41</div>
+                <div class="phone-icons">
+                  <svg width="14" height="10" viewBox="0 0 14 10"><path d="M0 7h2v3H0V7zm3-3h2v6H3V4zm3-4h2v10H6V0zm3 2h2v8H9V2zm3 1h2v7h-2V3z" fill="currentColor"/></svg>
+                  <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2C4.69 2 1.7 3.35 0 5.5L8 16l8-10.5C14.3 3.35 11.31 2 8 2z" fill="currentColor" opacity="0.3"/><path d="M8 4C5.58 4 3.35 4.97 1.66 6.59L8 14l6.34-7.41C12.65 4.97 10.42 4 8 4z" fill="currentColor" opacity="0.6"/><path d="M8 6C6.47 6 5.08 6.6 4 7.57L8 12l4-4.43C10.92 6.6 9.53 6 8 6z" fill="currentColor"/></svg>
+                  <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0" y="2" width="22" height="8" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="1.5" y="3.5" width="16" height="5" rx="1" fill="currentColor"/><path d="M23 5v2a1.5 1.5 0 000-2z" fill="currentColor" opacity="0.4"/></svg>
+                </div>
+              </div>
+              <div class="app-ui">
+                <div class="app-greeting">Good Morning! 👋</div>
+                <div class="app-balance">
+                  <span class="balance-label">Wallet Balance</span>
+                  <span class="balance-amount">₹12,450.00</span>
+                </div>
+                <div class="quick-actions">
+                  <div class="qa-item">
+                    <div class="qa-icon" style="background: #EEF2FF">💸</div>
+                    <span>Send</span>
+                  </div>
+                  <div class="qa-item">
+                    <div class="qa-icon" style="background: #F0FDF4">📱</div>
+                    <span>Recharge</span>
+                  </div>
+                  <div class="qa-item">
+                    <div class="qa-icon" style="background: #FFF7ED">🏠</div>
+                    <span>Bills</span>
+                  </div>
+                  <div class="qa-item">
+                    <div class="qa-icon" style="background: #FDF4FF">📈</div>
+                    <span>Invest</span>
+                  </div>
+                </div>
+                <div class="recent-txns">
+                  <div class="txn-title">Recent Transactions</div>
+                  <div class="txn-item">
+                    <div class="txn-avatar">RS</div>
+                    <div class="txn-info">
+                      <span>Rahul Sharma</span>
+                      <small>2 mins ago</small>
+                    </div>
+                    <span class="txn-amount debit">-₹500</span>
+                  </div>
+                  <div class="txn-item">
+                    <div class="txn-avatar" style="background: #10B981">SM</div>
+                    <div class="txn-info">
+                      <span>Salary Credit</span>
+                      <small>Yesterday</small>
+                    </div>
+                    <span class="txn-amount credit">+₹45,000</span>
+                  </div>
+                  <div class="txn-item">
+                    <div class="txn-avatar" style="background: #F59E0B">JD</div>
+                    <div class="txn-info">
+                      <span>Jio Recharge</span>
+                      <small>3 days ago</small>
+                    </div>
+                    <span class="txn-amount debit">-₹299</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-glow"></div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <div class="scroll-arrow">↓</div>
+      </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+      <div class="trust-container">
+        <span class="trust-item">🏆 Best Payment App 2024</span>
+        <span class="trust-divider">•</span>
+        <span class="trust-item">🔒 256-bit Encryption</span>
+        <span class="trust-divider">•</span>
+        <span class="trust-item">🇮🇳 Made in India</span>
+        <span class="trust-divider">•</span>
+        <span class="trust-item">⭐ 4.8/5 Rating</span>
+        <span class="trust-divider">•</span>
+        <span class="trust-item">🚀 #1 on Play Store</span>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="section features-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag reveal-up">What We Offer</span>
+          <h2 class="section-title reveal-up">Everything Financial,<br><span class="gradient-text">One App</span></h2>
+          <p class="section-subtitle reveal-up">From splitting bills with friends to building your wealth — PhonePe has you covered 24/7.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card reveal-up" data-delay="0">
+            <div class="feature-icon-wrap" style="--card-color: #5F3DC4">
+              <span class="feature-icon">💸</span>
+            </div>
+            <h3>UPI Payments</h3>
+            <p>Send & receive money instantly using UPI. Pay anyone across any bank with zero fees.</p>
+            <div class="feature-highlight">₹0 Transaction Fee</div>
+          </div>
+          <div class="feature-card reveal-up" data-delay="100">
+            <div class="feature-icon-wrap" style="--card-color: #0EA5E9">
+              <span class="feature-icon">📱</span>
+            </div>
+            <h3>Recharges & Bills</h3>
+            <p>Mobile recharges, DTH, electricity, water, gas — pay all your bills in seconds.</p>
+            <div class="feature-highlight">100+ Billers</div>
+          </div>
+          <div class="feature-card reveal-up" data-delay="200">
+            <div class="feature-icon-wrap" style="--card-color: #10B981">
+              <span class="feature-icon">📈</span>
+            </div>
+            <h3>Mutual Funds & Gold</h3>
+            <p>Start investing with ₹10. Explore top-performing mutual funds or buy 24K digital gold.</p>
+            <div class="feature-highlight">SIP from ₹10</div>
+          </div>
+          <div class="feature-card reveal-up" data-delay="300">
+            <div class="feature-icon-wrap" style="--card-color: #F59E0B">
+              <span class="feature-icon">🛡️</span>
+            </div>
+            <h3>Insurance</h3>
+            <p>Health, term, vehicle insurance from top insurers. Get covered in under 5 minutes.</p>
+            <div class="feature-highlight">From ₹499/year</div>
+          </div>
+          <div class="feature-card reveal-up" data-delay="400">
+            <div class="feature-icon-wrap" style="--card-color: #EF4444">
+              <span class="feature-icon">🎁</span>
+            </div>
+            <h3>Rewards & Cashback</h3>
+            <p>Earn cashback on every transaction. Scratch cards, offers, and exclusive PhonePe rewards.</p>
+            <div class="feature-highlight">Win Every Day</div>
+          </div>
+          <div class="feature-card reveal-up" data-delay="500">
+            <div class="feature-icon-wrap" style="--card-color: #8B5CF6">
+              <span class="feature-icon">🏦</span>
+            </div>
+            <h3>Fixed Deposits</h3>
+            <p>Earn up to 9.5% interest on FDs from top NBFCs. 100% digital, paperless process.</p>
+            <div class="feature-highlight">Up to 9.5% p.a.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPI Payment Demo Section -->
+    <section id="payments" class="section payment-demo-section">
+      <div class="container">
+        <div class="payment-demo-grid">
+          <div class="payment-demo-left">
+            <span class="section-tag reveal-up">Lightning Fast</span>
+            <h2 class="section-title reveal-up">Pay in <span class="gradient-text">Under 3 Seconds</span></h2>
+            <p class="section-subtitle reveal-up">Our proprietary routing engine ensures your payments go through, even during peak hours. Processing 1 billion+ transactions monthly with 99.9% success rate.</p>
+            <div class="payment-steps reveal-up">
+              <div class="step active">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                  <h4>Enter UPI ID or Scan QR</h4>
+                  <p>Pay anyone with their UPI ID, phone number, or by scanning any QR code in India.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                  <h4>Enter Amount & Note</h4>
+                  <p>Type the amount and add a note for your reference. No hidden charges.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                  <h4>Authenticate with PIN</h4>
+                  <p>Confirm with your UPI PIN. Biometric authentication supported.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">04</div>
+                <div class="step-content">
+                  <h4>Done! Money Transferred</h4>
+                  <p>Instant confirmation with receipt. Both parties get notified immediately.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="payment-demo-right reveal-left">
+            <div class="qr-demo-card">
+              <div class="qr-top">
+                <span>PhonePe QR</span>
+                <span class="qr-badge">Universal</span>
+              </div>
+              <div class="qr-code-visual">
+                <svg viewBox="0 0 200 200" class="qr-svg">
+                  <!-- QR Pattern -->
+                  <rect width="200" height="200" fill="white" rx="12"/>
+                  <!-- Finder patterns -->
+                  <rect x="10" y="10" width="60" height="60" rx="4" fill="#5F3DC4"/>
+                  <rect x="18" y="18" width="44" height="44" rx="2" fill="white"/>
+                  <rect x="26" y="26" width="28" height="28" rx="1" fill="#5F3DC4"/>
+                  <rect x="130" y="10" width="60" height="60" rx="4" fill="#5F3DC4"/>
+                  <rect x="138" y="18" width="44" height="44" rx="2" fill="white"/>
+                  <rect x="146" y="26" width="28" height="28" rx="1" fill="#5F3DC4"/>
+                  <rect x="10" y="130" width="60" height="60" rx="4" fill="#5F3DC4"/>
+                  <rect x="18" y="138" width="44" height="44" rx="2" fill="white"/>
+                  <rect x="26" y="146" width="28" height="28" rx="1" fill="#5F3DC4"/>
+                  <!-- Data modules -->
+                  <rect x="80" y="10" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="100" y="10" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="80" y="30" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="110" y="30" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="90" y="50" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="80" y="80" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="100" y="80" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="110" y="90" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="80" y="100" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="130" y="80" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="150" y="80" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="140" y="100" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="160" y="90" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="180" y="80" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="130" y="110" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="150" y="110" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="80" y="130" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="100" y="130" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="110" y="150" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="80" y="160" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="90" y="170" width="10" height="10" fill="#5F3DC4"/>
+                  <rect x="80" y="180" width="10" height="10" fill="#5F3DC4"/>
+                  <!-- Center logo -->
+                  <circle cx="100" cy="100" r="18" fill="white"/>
+                  <circle cx="100" cy="100" r="14" fill="#5F3DC4"/>
+                  <text x="100" y="105" text-anchor="middle" fill="white" font-size="12" font-weight="bold">P</text>
+                </svg>
+              </div>
+              <div class="qr-bottom">
+                <div class="upi-id">aranya@phonepe</div>
+                <div class="qr-supported">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/200px-UPI-Logo-vector.svg.png" alt="UPI" height="20" onerror="this.style.display='none'"/>
+                  <span>Accepted everywhere</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Investment Section -->
+    <section id="investments" class="section invest-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag reveal-up">Grow Your Wealth</span>
+          <h2 class="section-title reveal-up">Invest Smart,<br><span class="gradient-text">Start Small</span></h2>
+          <p class="section-subtitle reveal-up">SEBI-registered investment products, powered by the PhonePe Wealth platform.</p>
+        </div>
+        <div class="invest-cards">
+          <div class="invest-card reveal-up" data-delay="0">
+            <div class="invest-icon">🥇</div>
+            <h3>Digital Gold</h3>
+            <div class="invest-price" id="gold-price">₹7,245 / gram</div>
+            <div class="invest-change positive">▲ 2.3% today</div>
+            <p>Buy 24K pure gold starting at ₹1. Stored securely in certified vaults.</p>
+            <button class="btn-invest" onclick="showInvestModal('gold')">Buy Gold</button>
+          </div>
+          <div class="invest-card featured reveal-up" data-delay="100">
+            <div class="invest-badge">Most Popular</div>
+            <div class="invest-icon">📈</div>
+            <h3>Mutual Funds</h3>
+            <div class="invest-price">SIP from ₹10</div>
+            <div class="invest-change positive">▲ Avg 14.5% p.a.</div>
+            <p>5000+ funds. Zero commission. Expert recommendations powered by AI.</p>
+            <button class="btn-invest" onclick="showInvestModal('mf')">Start SIP</button>
+          </div>
+          <div class="invest-card reveal-up" data-delay="200">
+            <div class="invest-icon">🏦</div>
+            <h3>Fixed Deposits</h3>
+            <div class="invest-price">Up to 9.5% p.a.</div>
+            <div class="invest-change">Guaranteed Returns</div>
+            <p>FDs from top NBFCs. 100% paperless, insured up to ₹5 Lakhs.</p>
+            <button class="btn-invest" onclick="showInvestModal('fd')">Book FD</button>
+          </div>
+          <div class="invest-card reveal-up" data-delay="300">
+            <div class="invest-icon">📊</div>
+            <h3>US Stocks</h3>
+            <div class="invest-price">From $1</div>
+            <div class="invest-change">Apple, Tesla, Google</div>
+            <p>Invest in top US companies through fractional shares. INR-denominated.</p>
+            <button class="btn-invest" onclick="showInvestModal('stocks')">Invest Now</button>
+          </div>
+        </div>
+
+        <!-- Investment Calculator -->
+        <div class="calc-section reveal-up">
+          <h3>💰 SIP Returns Calculator</h3>
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <div class="input-group">
+                <label>Monthly Investment</label>
+                <div class="slider-wrap">
+                  <input type="range" id="monthly-inv" min="500" max="50000" step="500" value="5000" oninput="calcSIP()"/>
+                  <span class="slider-val">₹<span id="monthly-val">5,000</span></span>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Expected Return (% p.a.)</label>
+                <div class="slider-wrap">
+                  <input type="range" id="return-rate" min="6" max="20" step="0.5" value="12" oninput="calcSIP()"/>
+                  <span class="slider-val"><span id="rate-val">12</span>%</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Investment Period (Years)</label>
+                <div class="slider-wrap">
+                  <input type="range" id="period" min="1" max="30" step="1" value="10" oninput="calcSIP()"/>
+                  <span class="slider-val"><span id="period-val">10</span> yrs</span>
+                </div>
+              </div>
+            </div>
+            <div class="calc-results">
+              <div class="result-ring">
+                <svg viewBox="0 0 200 200" class="donut-chart">
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="#EEF2FF" stroke-width="20"/>
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="#5F3DC4" stroke-width="20"
+                    stroke-dasharray="251" stroke-dashoffset="100" id="donut-invested"
+                    stroke-linecap="round" transform="rotate(-90 100 100)"/>
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="#A855F7" stroke-width="20"
+                    stroke-dasharray="251" stroke-dashoffset="200" id="donut-returns"
+                    stroke-linecap="round" transform="rotate(-90 100 100)"/>
+                </svg>
+                <div class="result-center">
+                  <span class="result-label">Total Value</span>
+                  <span class="result-amount" id="total-val">₹11.6L</span>
+                </div>
+              </div>
+              <div class="result-breakdown">
+                <div class="rb-item">
+                  <span class="rb-dot" style="background:#5F3DC4"></span>
+                  <span class="rb-label">Invested</span>
+                  <span class="rb-val" id="invested-val">₹6.0L</span>
+                </div>
+                <div class="rb-item">
+                  <span class="rb-dot" style="background:#A855F7"></span>
+                  <span class="rb-label">Returns</span>
+                  <span class="rb-val" id="returns-val">₹5.6L</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance Section -->
+    <section id="insurance" class="section insurance-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag reveal-up">Protection First</span>
+          <h2 class="section-title reveal-up">Insurance Made <span class="gradient-text">Simple</span></h2>
+        </div>
+        <div class="insurance-grid">
+          <div class="insurance-card reveal-up" data-delay="0">
+            <div class="ins-header">
+              <span class="ins-icon">❤️</span>
+              <div>
+                <h3>Health Insurance</h3>
+                <p>Cashless hospitalisation</p>
+              </div>
+            </div>
+            <div class="ins-price">From ₹499/year</div>
+            <ul class="ins-features">
+              <li>✅ ₹5 Lakh coverage</li>
+              <li>✅ 10,000+ network hospitals</li>
+              <li>✅ Zero waiting period for accidents</li>
+              <li>✅ Pre & post hospitalisation</li>
+            </ul>
+            <button class="btn-ins">Get Quote</button>
+          </div>
+          <div class="insurance-card reveal-up" data-delay="150">
+            <div class="ins-header">
+              <span class="ins-icon">🚗</span>
+              <div>
+                <h3>Motor Insurance</h3>
+                <p>Comprehensive protection</p>
+              </div>
+            </div>
+            <div class="ins-price">From ₹2,094/year</div>
+            <ul class="ins-features">
+              <li>✅ Zero depreciation cover</li>
+              <li>✅ 24/7 roadside assistance</li>
+              <li>✅ Instant claim settlement</li>
+              <li>✅ Pan-India network garages</li>
+            </ul>
+            <button class="btn-ins">Get Quote</button>
+          </div>
+          <div class="insurance-card reveal-up" data-delay="300">
+            <div class="ins-header">
+              <span class="ins-icon">🛡️</span>
+              <div>
+                <h3>Term Life Insurance</h3>
+                <p>Pure life protection</p>
+              </div>
+            </div>
+            <div class="ins-price">From ₹490/month</div>
+            <ul class="ins-features">
+              <li>✅ ₹1 Crore life cover</li>
+              <li>✅ Claim ratio 99.1%</li>
+              <li>✅ Tax benefits under 80C</li>
+              <li>✅ Instant e-policy issuance</li>
+            </ul>
+            <button class="btn-ins">Get Quote</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Section -->
+    <section id="business" class="section business-section">
+      <div class="container">
+        <div class="business-grid">
+          <div class="business-left">
+            <span class="section-tag reveal-up">For Businesses</span>
+            <h2 class="section-title reveal-up">Accept Payments,<br><span class="gradient-text">Grow Faster</span></h2>
+            <p class="section-subtitle reveal-up">PhonePe for Business — the complete payment solution for shops, SMEs, and enterprises.</p>
+            <div class="biz-features reveal-up">
+              <div class="biz-feat">
+                <span class="biz-icon">📊</span>
+                <div>
+                  <h4>Real-time Analytics</h4>
+                  <p>Track every rupee with live dashboards and detailed reports.</p>
+                </div>
+              </div>
+              <div class="biz-feat">
+                <span class="biz-icon">⚡</span>
+                <div>
+                  <h4>Instant Settlement</h4>
+                  <p>Get your money in T+1 days. Or opt for instant settlement at nominal fees.</p>
+                </div>
+              </div>
+              <div class="biz-feat">
+                <span class="biz-icon">🔗</span>
+                <div>
+                  <h4>Payment Links & Gateway</h4>
+                  <p>Share payment links, embed payment gateway, or use our APIs.</p>
+                </div>
+              </div>
+              <div class="biz-feat">
+                <span class="biz-icon">🏪</span>
+                <div>
+                  <h4>Point of Sale</h4>
+                  <p>Smart POS devices and QR-based payments for physical stores.</p>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn-primary reveal-up">Register Your Business →</a>
+          </div>
+          <div class="business-right reveal-right">
+            <div class="analytics-dashboard">
+              <div class="dash-header">
+                <span>📊 Revenue Dashboard</span>
+                <span class="dash-period">Last 30 days</span>
+              </div>
+              <div class="dash-stats">
+                <div class="ds-item">
+                  <span class="ds-label">Total Revenue</span>
+                  <span class="ds-value">₹4,23,890</span>
+                  <span class="ds-change positive">+18.4%</span>
+                </div>
+                <div class="ds-item">
+                  <span class="ds-label">Transactions</span>
+                  <span class="ds-value">1,847</span>
+                  <span class="ds-change positive">+24.1%</span>
+                </div>
+              </div>
+              <div class="mini-chart">
+                <svg viewBox="0 0 300 100" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#5F3DC4" stop-opacity="0.4"/>
+                      <stop offset="100%" stop-color="#5F3DC4" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,80 L25,70 L50,75 L75,55 L100,60 L125,40 L150,45 L175,25 L200,30 L225,15 L250,20 L275,10 L300,5 L300,100 L0,100 Z" fill="url(#chartGrad)"/>
+                  <path d="M0,80 L25,70 L50,75 L75,55 L100,60 L125,40 L150,45 L175,25 L200,30 L225,15 L250,20 L275,10 L300,5" fill="none" stroke="#5F3DC4" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="payment-methods">
+                <div class="pm-item">
+                  <span>UPI</span>
+                  <div class="pm-bar"><div class="pm-fill" style="width:72%; background:#5F3DC4"></div></div>
+                  <span>72%</span>
+                </div>
+                <div class="pm-item">
+                  <span>Cards</span>
+                  <div class="pm-bar"><div class="pm-fill" style="width:18%; background:#A855F7"></div></div>
+                  <span>18%</span>
+                </div>
+                <div class="pm-item">
+                  <span>Wallet</span>
+                  <div class="pm-bar"><div class="pm-fill" style="width:10%; background:#E879F9"></div></div>
+                  <span>10%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security" class="section security-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag reveal-up">Bank-Grade Security</span>
+          <h2 class="section-title reveal-up">Your Money is <span class="gradient-text">100% Safe</span></h2>
+          <p class="section-subtitle reveal-up">Multi-layered security architecture that protects every transaction you make.</p>
+        </div>
+        <div class="security-grid">
+          <div class="sec-card reveal-up" data-delay="0">
+            <div class="sec-icon">🔐</div>
+            <h3>256-bit SSL Encryption</h3>
+            <p>Military-grade AES-256 encryption for all data in transit and at rest.</p>
+          </div>
+          <div class="sec-card reveal-up" data-delay="100">
+            <div class="sec-icon">👆</div>
+            <h3>Biometric Authentication</h3>
+            <p>Fingerprint & face ID support. Your body is your password.</p>
+          </div>
+          <div class="sec-card reveal-up" data-delay="200">
+            <div class="sec-icon">🤖</div>
+            <h3>AI Fraud Detection</h3>
+            <p>Real-time ML models monitoring 500+ signals to detect suspicious activity.</p>
+          </div>
+          <div class="sec-card reveal-up" data-delay="300">
+            <div class="sec-icon">📱</div>
+            <h3>Device Binding</h3>
+            <p>App is tied to your registered device. Unauthorized logins blocked instantly.</p>
+          </div>
+          <div class="sec-card reveal-up" data-delay="400">
+            <div class="sec-icon">🛡️</div>
+            <h3>RBI Regulated</h3>
+            <p>Fully compliant with RBI guidelines, PCI-DSS certified payment infrastructure.</p>
+          </div>
+          <div class="sec-card reveal-up" data-delay="500">
+            <div class="sec-icon">🔔</div>
+            <h3>Instant Alerts</h3>
+            <p>Real-time SMS & push notifications for every transaction. Zero blind spots.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="section download-section">
+      <div class="container">
+        <div class="download-content">
+          <div class="download-left">
+            <h2 class="reveal-up">Ready to Join <span class="gradient-text">500 Million Indians?</span></h2>
+            <p class="reveal-up">Download the PhonePe app — free, forever. Available on iOS and Android.</p>
+            <div class="download-buttons reveal-up">
+              <a href="#" class="store-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <div>
+                  <small>Download on the</small>
+                  <strong>App Store</strong>
+                </div>
+              </a>
+              <a href="#" class="store-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.4.22.88.2 1.28-.04L16.2 17l-3.34-3.34-9.68 10.1zm15.54-10.96L4.46.28C4.07.06 3.61.05 3.2.26L14.84 11.9l3.88.9zM21.4 10.44l-3.3-1.89-3.6 3.6 3.6 3.6 3.3-1.89c.95-.54.95-2.88 0-3.42zM4.46 23.72L18.7 15.5l-3.87.9-10.37 9.32z"/></svg>
+                <div>
+                  <small>Get it on</small>
+                  <strong>Google Play</strong>
+                </div>
+              </a>
+            </div>
+            <div class="qr-download reveal-up">
+              <p>Or scan QR to download:</p>
+              <div class="dl-qr">
+                <svg viewBox="0 0 80 80" width="80" height="80">
+                  <rect width="80" height="80" fill="white" rx="8"/>
+                  <rect x="4" y="4" width="24" height="24" rx="2" fill="#5F3DC4"/>
+                  <rect x="8" y="8" width="16" height="16" rx="1" fill="white"/>
+                  <rect x="11" y="11" width="10" height="10" rx="0.5" fill="#5F3DC4"/>
+                  <rect x="52" y="4" width="24" height="24" rx="2" fill="#5F3DC4"/>
+                  <rect x="56" y="8" width="16" height="16" rx="1" fill="white"/>
+                  <rect x="59" y="11" width="10" height="10" rx="0.5" fill="#5F3DC4"/>
+                  <rect x="4" y="52" width="24" height="24" rx="2" fill="#5F3DC4"/>
+                  <rect x="8" y="56" width="16" height="16" rx="1" fill="white"/>
+                  <rect x="11" y="59" width="10" height="10" rx="0.5" fill="#5F3DC4"/>
+                  <rect x="32" y="4" width="4" height="4" fill="#5F3DC4"/>
+                  <rect x="40" y="4" width="4" height="4" fill="#5F3DC4"/>
+                  <rect x="32" y="12" width="4" height="4" fill="#5F3DC4"/>
+                  <rect x="44" y="16" width="4" height="4" fill="#5F3DC4"/>
+                  <rect x="32" y="32" width="4" height="4" fill="#5F3DC4"/>
+                  <rect x="40" y="36" width="4" height="4" fill="#5F3DC4"/>
+                  <rect x="52" y="32" width="4" height="4" fill="#5F3DC4"/>
+                  <rect x="60" y="40" width="4" height="4" fill="#5F3DC4"/>
+                  <rect x="32" y="52" width="4" height="4" fill="#5F3DC4"/>
+                  <rect x="44" y="56" width="4" height="4" fill="#5F3DC4"/>
+                  <rect x="52" y="60" width="4" height="4" fill="#5F3DC4"/>
+                  <rect x="68" y="52" width="4" height="4" fill="#5F3DC4"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="download-right reveal-right">
+            <div class="phone-duo">
+              <div class="phone-mini phone-1">
+                <div class="pm-screen">
+                  <div style="color:#5F3DC4;font-weight:700;font-size:10px;text-align:center;padding-top:8px">PhonePe</div>
+                  <div style="text-align:center;font-size:18px;margin-top:4px">💸</div>
+                  <div style="font-size:8px;text-align:center;color:#666;margin-top:2px">Send ₹500 to Priya</div>
+                  <div style="background:#5F3DC4;color:white;font-size:7px;text-align:center;padding:3px;border-radius:4px;margin:6px 6px">✓ Payment Sent</div>
+                </div>
+              </div>
+              <div class="phone-mini phone-2">
+                <div class="pm-screen">
+                  <div style="color:#5F3DC4;font-weight:700;font-size:10px;text-align:center;padding-top:8px">Investments</div>
+                  <div style="text-align:center;font-size:16px;margin-top:4px">📈</div>
+                  <div style="font-size:7px;color:#10B981;text-align:center;font-weight:600">+₹12,450 profit</div>
+                  <div style="font-size:6px;text-align:center;color:#666;margin-top:2px">Portfolio value: ₹1.24L</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag reveal-up">User Love</span>
+          <h2 class="section-title reveal-up">What <span class="gradient-text">Indians Say</span></h2>
+        </div>
+        <div class="testimonials-track">
+          <div class="testimonials-inner" id="testimonials-inner">
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p>"PhonePe has completely changed how I manage money. The investment features are top-notch, and I've earned amazing returns on my SIPs."</p>
+              <div class="testimonial-user">
+                <div class="user-avatar">AR</div>
+                <div>
+                  <strong>Arjun Reddy</strong>
+                  <small>Bangalore • 3 years user</small>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p>"I pay all my house bills, recharges, and even buy gold on PhonePe. The cashback and scratch cards are a nice bonus every time!"</p>
+              <div class="testimonial-user">
+                <div class="user-avatar" style="background:#10B981">PS</div>
+                <div>
+                  <strong>Priya Sharma</strong>
+                  <small>Mumbai • 4 years user</small>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p>"For my restaurant business, PhonePe QR has been a game changer. Settlement is super fast and the analytics dashboard is excellent."</p>
+              <div class="testimonial-user">
+                <div class="user-avatar" style="background:#F59E0B">MK</div>
+                <div>
+                  <strong>Mohammed Khan</strong>
+                  <small>Hyderabad • Business owner</small>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p>"I got my health insurance and term insurance both from PhonePe in under 10 minutes. The process was incredibly smooth and transparent."</p>
+              <div class="testimonial-user">
+                <div class="user-avatar" style="background:#8B5CF6">SP</div>
+                <div>
+                  <strong>Sunita Patel</strong>
+                  <small>Ahmedabad • Insurance customer</small>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p>"The fraud protection on PhonePe is superb. When I accidentally tried a suspicious link, the app immediately blocked it and alerted me."</p>
+              <div class="testimonial-user">
+                <div class="user-avatar" style="background:#EF4444">RG</div>
+                <div>
+                  <strong>Rohan Gupta</strong>
+                  <small>Delhi • 5 years user</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <div class="footer-logo">
+                <svg width="36" height="36" viewBox="0 0 60 60" fill="none">
+                  <circle cx="30" cy="30" r="30" fill="#5F3DC4"/>
+                  <path d="M18 18h14c5 0 9 4 9 9s-4 9-9 9H22v8h-4V18zm4 12h10c2.8 0 5-2.2 5-5s-2.2-5-5-5H22v10z" fill="white"/>
+                </svg>
+                <span>PhonePe</span>
+              </div>
+              <p>India's most trusted payment platform, empowering 500M+ users with seamless financial services.</p>
+              <div class="social-links">
+                <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                <a href="#" class="social-link" aria-label="Facebook">f</a>
+                <a href="#" class="social-link" aria-label="Instagram">📸</a>
+                <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                <a href="#" class="social-link" aria-label="YouTube">▶</a>
+              </div>
+            </div>
+            <div class="footer-links">
+              <h4>Products</h4>
+              <ul>
+                <li><a href="#">Send & Receive Money</a></li>
+                <li><a href="#">Mobile Recharge</a></li>
+                <li><a href="#">Bill Payments</a></li>
+                <li><a href="#">Mutual Funds</a></li>
+                <li><a href="#">Digital Gold</a></li>
+                <li><a href="#">Fixed Deposits</a></li>
+                <li><a href="#">Insurance</a></li>
+              </ul>
+            </div>
+            <div class="footer-links">
+              <h4>Business</h4>
+              <ul>
+                <li><a href="#">PhonePe for Business</a></li>
+                <li><a href="#">Payment Gateway</a></li>
+                <li><a href="#">POS Solutions</a></li>
+                <li><a href="#">SmartSpeaker</a></li>
+                <li><a href="#">Merchant Portal</a></li>
+                <li><a href="#">Partner Program</a></li>
+                <li><a href="#">Developer APIs</a></li>
+              </ul>
+            </div>
+            <div class="footer-links">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Media & Press</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Investor Relations</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="footer-links">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">24/7 Customer Support</a></li>
+                <li><a href="#">Raise a Dispute</a></li>
+                <li><a href="#">Grievance Redressal</a></li>
+                <li><a href="#">Security Tips</a></li>
+                <li><a href="#">Sitemap</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="footer-bottom-grid">
+            <p>© 2024 PhonePe Private Limited. All Rights Reserved.</p>
+            <div class="footer-legal">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Cookie Policy</a>
+              <a href="#">Responsible Disclosure</a>
+            </div>
+          </div>
+          <p class="footer-disclaimer">PhonePe is regulated by the Reserve Bank of India and is a member of the NPCI. Mutual fund investments are subject to market risks. Insurance products are underwritten by respective insurance companies. Past performance is not indicative of future returns.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modals & Overlays -->
+    <div class="modal-overlay" id="invest-modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <h3 id="modal-title">Start Investing</h3>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" onclick="scrollToTop()">↑</button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+      <p>🍪 We use cookies to enhance your experience. By continuing, you accept our <a href="#">Cookie Policy</a>.</p>
+      <div class="cookie-actions">
+        <button onclick="acceptCookies()" class="btn-primary">Accept All</button>
+        <button onclick="declineCookies()" class="btn-ghost">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/js/main.js"></script>
+  <script src="src/js/animations.js"></script>
+  <script src="src/js/calculator.js"></script>
+  <script src="src/js/utils.js"></script>
+</body>
+</html>
