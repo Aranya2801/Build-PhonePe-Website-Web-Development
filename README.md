@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="PhonePe_Logo.png/200px-PhonePe_Logo.png" alt="PhonePe Logo" width="120" />
+<img src="logo.png" alt="PhonePe Logo" width="120" />
 
 # 🚀 Build-PhonePe-Website-Web-Development
 
