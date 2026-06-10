@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/200px-PhonePe_Logo.svg.png" alt="PhonePe Logo" width="120" />
+<img src="PhonePe_Logo.png/200px-PhonePe_Logo.svg.png" alt="PhonePe Logo" width="120" />
 
 # 🚀 Build-PhonePe-Website-Web-Development
 
