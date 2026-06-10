@@ -32,11 +32,11 @@
 
 | Desktop Home | Dark Mode | Investment Dashboard |
 |:---:|:---:|:---:|
-| ![Home](docs/screenshots/home.png) | ![Dark](docs/screenshots/dark.png) | ![Invest](docs/screenshots/invest.png) |
+| ![Home](home.png) | ![Dark](dark.png) | ![Invest](invest.png) |
 
 | Mobile View | SIP Calculator | QR Payment |
 |:---:|:---:|:---:|
-| ![Mobile](docs/screenshots/mobile.png) | ![SIP](docs/screenshots/sip.png) | ![QR](docs/screenshots/qr.png) |
+| ![Mobile](mobile.png) | ![SIP](sip.png) | ![QR](qr.png) |
 
 ---
 
